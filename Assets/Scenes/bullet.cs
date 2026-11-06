@@ -26,7 +26,15 @@ public class bullet : MonoBehaviour
     {
         if (other.CompareTag("enemy"))
         {
-            Destroy(other.gameObject);
+            
+                ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+                if (scoreManager != null)
+                {
+                    scoreManager.AddScore(10);
+                }
+
+
+                Destroy(other.gameObject);
             Destroy(gameObject);
         }
 
